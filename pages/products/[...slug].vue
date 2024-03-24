@@ -13,7 +13,6 @@ const { data: product } = useAsyncData(
         populate: '*',
     }),
 );
-
 </script>
 
 <template>

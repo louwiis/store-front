@@ -1,5 +1,5 @@
 // product.model.ts
-import type { Tag } from './tag.model';
+import type { Category } from './category.model';
 import type { Image, Meta } from './strapi.model';
 
 export interface Product {
@@ -7,7 +7,7 @@ export interface Product {
   name: string;
   slug: string;
   image: Image;
-  tags: Tag[];
+  categories: Category[];
   price: number;
   description: string;
   created_at: Date;

@@ -1,11 +1,15 @@
 <script setup lang="ts">
-import type { ProductsResponse } from '~/models/product.model';
+import type { Category } from '~/models/category.model';
+import type { Meta } from '~/models/strapi.model';
 
-const { find } = useStrapi4();
-const { data: products } = useAsyncData(
-  'products',
+const route = useRoute()
+const { findOne } = useStrapi4()
+const slug = route.params.slug[0]
+
+const { data: category } = useAsyncData(
+  'categories',
   () =>
-    find<ProductsResponse>('products', {
+    findOne<{ data: Category; meta: Meta }>('categories', slug, {
         populate: '*',
     }),
 );
@@ -13,13 +17,13 @@ const { data: products } = useAsyncData(
 
 <template>
     <div class="flex flex-col gap-4">
-        <h1 class="text-2xl font-bold">Products</h1>
+        <h1 class="text-2xl font-bold">Category products</h1>
         
-        <div v-if="!products">
+        <div v-if="!category">
             <p>Loading...</p>
         </div>
         <div class="flex flex-row gap-4" v-else>
-            <div v-for="product in products?.data" :key="product.slug">
+            <div v-for="product in category?.data.products" :key="product.slug">
                 <nuxt-link :to="`/products/${product.slug}`">
                     <h2 class="text-xl font-bold">{{ product.name }}</h2>
 

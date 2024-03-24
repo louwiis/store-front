@@ -2,7 +2,7 @@
 import type { Product } from './product.model';
 import type { Meta } from './strapi.model';
 
-export interface Tag {
+export interface Category {
   id: number;
   name: string;
   slug: string;
@@ -12,7 +12,7 @@ export interface Tag {
   publishedAt: Date;
 }
 
-export interface TagResponse {
-  data: Tag[];
+export interface CategoryResponse {
+  data: Category[];
   meta: Meta;
 }
