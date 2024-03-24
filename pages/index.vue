@@ -8,13 +8,9 @@ const { data: products } = useAsyncData(
   'products',
   () =>
     find<{ data: Product[]; meta: Meta }>('products', {
-      populate: '*',
+        populate: '*',
     }),
 );
-
-onMounted(() => {
-    console.log('products', products);
-});
 </script>
 
 <template>
@@ -24,8 +20,8 @@ onMounted(() => {
             <p>Loading...</p>
         </div>
         <div class="flex flex-col gap-4" v-else>
-            <div v-for="product in products?.data" :key="product.id">
-                <nuxt-link :to="`/products/${product.id}`">
+            <div v-for="product in products?.data" :key="product.slug">
+                <nuxt-link :to="`/products/${product.slug}`">
                     <h2 class="text-xl font-bold">{{ product.name }}</h2>
                 </nuxt-link>
                 <p>{{ product.description }}</p>
