@@ -6,7 +6,7 @@ const route = useRoute()
 const { findOne } = useStrapi4()
 const slug = route.params.slug[0]
 
-const { data: product } = useAsyncData(
+const { data: product, pending } = useAsyncData(
   'products',
   () =>
     findOne<{ data: Product; meta: Meta }>('products', slug, {
@@ -17,10 +17,10 @@ const { data: product } = useAsyncData(
 
 <template>
     <div class="flex flex-col gap-4">
-        <div v-if="!product">
+        <div v-if="pending">
             <p>Loading...</p>
         </div>
-        <div v-else>
+        <div v-else-if="product">
             <h1 class="text-2xl font-bold">{{ product.data.name }}</h1>
 
             <img
