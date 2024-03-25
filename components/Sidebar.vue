@@ -26,7 +26,7 @@ onMounted(async () => {
                 <p>Loading...</p>
             </div>
             <div v-else>
-                <span to="/" onclick="store.setFilter('tous')">
+                <span to="/" @click="store.setFilter('tous')">
                     <h1 class="text-2xl font-bold">Tous les produits</h1>
                 </span>
 

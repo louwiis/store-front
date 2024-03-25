@@ -42,7 +42,6 @@ const { data: products, pending } = await useAsyncData(
 
 <template>
     <div class="flex flex-col gap-4">
-        {{ search }}
         <div class="flex flex-row justify-between">
             <h1 class="text-2xl font-bold">{{ filter.charAt(0).toUpperCase() + filter.slice(1) }} produits</h1>
 
