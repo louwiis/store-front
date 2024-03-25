@@ -30,6 +30,8 @@ const { data: product, pending } = useAsyncData(
             />
 
             <p>{{ product.data.description }}</p>
+
+            <p>{{ product.data.price / 100 }} €</p>
         </div>
     </div>
 </template>
