@@ -2,7 +2,7 @@
 export default defineNuxtConfig({
   devtools: { enabled: true },
   css: ['~/assets/css/main.css'],
-  modules: ['@nuxtjs/strapi', '@nuxt/ui'],
+  modules: ['@nuxtjs/strapi', '@nuxt/ui', '@pinia/nuxt'],
   strapi: {
     url: process.env.STRAPI_URL || 'http://localhost:1337',
     prefix: '/api',
