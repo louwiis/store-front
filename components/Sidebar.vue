@@ -30,9 +30,13 @@ onMounted(async () => {
                     <h1 class="text-2xl font-bold">Tous les produits</h1>
                 </span>
 
-                <span v-for="category in categories" :key="category.slug" :to="`/categories/${category.slug}`" @click="store.setFilter(category.slug)">
-                    <h2 class="text-xl font-bold">{{ category.name }}</h2>
-                </span>
+                <hr class="border-2 border-gray-300 my-4" />
+
+                <div class="flex flex-col gap-1">
+                    <span v-for="category in categories" :key="category.slug" :to="`/categories/${category.slug}`" @click="store.setFilter(category.slug)">
+                        <h2 class="text-xl font-bold">{{ category.name }}</h2>
+                    </span>
+                </div>
             </div>
         </div>
     </div>
